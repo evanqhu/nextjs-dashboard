@@ -1,18 +1,29 @@
+/**
+ * 注入 Tailwind 的基础样式以及所有插件注册的基础样式。
+ */
 @tailwind base;
+
+/**
+  * 注入 Tailwind 的组件类以及所有插件注册的组件类。
+  */
 @tailwind components;
+
+/**
+  * 注入 Tailwind 的工具类以及所有插件注册的工具类。
+  */
 @tailwind utilities;
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-input[type='number']::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
