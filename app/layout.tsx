@@ -1,3 +1,4 @@
+/** 根布局 */
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts'; // 字体
 
