@@ -4,9 +4,12 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import postgres from "postgres";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
+/** ****************** invoice actions ****************** */
 /** 表单验证状态类型 */
 export type State = {
   errors?: {
@@ -124,4 +127,22 @@ export async function deleteInvoice(id: string) {
   }
   // 触发新的服务器请求并重新渲染表格
   revalidatePath("/dashboard/invoices");
+}
+
+/** ****************** auth actions ****************** */
+/** 登录认证 */
+export async function authenticate(prevState: string | undefined, formData: FormData) {
+  try {
+    await signIn("credentials", formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch ((error as any).type) {
+        case "CredentialsSignin":
+          return "Invalid credentials.";
+        default:
+          return "Something went wrong.";
+      }
+    }
+    throw error;
+  }
 }
