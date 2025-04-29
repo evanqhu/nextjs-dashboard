@@ -120,7 +120,7 @@ export async function deleteInvoice(id: string) {
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
   } catch (error) {
-    return { message: "Database Error: Failed to Delete Invoice." };
+    console.error("Database Error: Failed to Delete Invoice.", error);
   }
   // 触发新的服务器请求并重新渲染表格
   revalidatePath("/dashboard/invoices");
