@@ -42,7 +42,6 @@ export async function createInvoice(formData: FormData) {
 
   // 因为数据会缓存，所以需要重新验证路径，重新从服务器获取数据
   revalidatePath("/dashboard/invoices");
-
   // 重定向到 invoices 页面
   redirect("/dashboard/invoices");
 }
@@ -69,6 +68,7 @@ export async function updateInvoice(id: string, formData: FormData) {
 
 /** 删除发票 */
 export async function deleteInvoice(id: string) {
+  // throw new Error("Failed to Delete Invoice");
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   // 触发新的服务器请求并重新渲染表格
   revalidatePath("/dashboard/invoices");
