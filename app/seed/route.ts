@@ -128,7 +128,7 @@ async function seedRevenue() {
 export async function GET() {
   try {
     // 在一个事务中执行所有数据填充操作
-    const result = await sql.begin((sql) => [
+    const result = await sql.begin(() => [
       seedUsers(), // 填充用户数据
       seedCustomers(), // 填充客户数据
       seedInvoices(), // 填充发票数据
