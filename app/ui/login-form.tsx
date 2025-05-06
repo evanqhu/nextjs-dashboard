@@ -9,6 +9,7 @@ import { authenticate } from "@/app/lib/actions";
 import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
+  // 这是一个客户端组件的 hook，可以让你读取当前 URL 的查询参数
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
   const [errorMessage, formAction, isPending] = useActionState(authenticate, undefined);
