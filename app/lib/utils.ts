@@ -27,7 +27,7 @@ export const generateYAxis = (revenue: Revenue[]) => {
   // 根据最高记录计算需要在 Y 轴上显示的标签
   // 以 1000 为单位
   const yAxisLabels = [];
-  const highestRecord = Math.max(...revenue.map((month) => month.revenue));
+  const highestRecord = Math.max(...revenue.map(month => month.revenue));
   const topLabel = Math.ceil(highestRecord / 1000) * 1000;
 
   for (let i = topLabel; i >= 0; i -= 1000) {

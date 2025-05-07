@@ -1,4 +1,4 @@
-/** 
+/**
  * 数据库操作相关的功能模块
  * 包含了所有与数据库交互的函数
  */
@@ -76,7 +76,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
       INSERT INTO invoices (customer_id, amount, status, date)
       VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
     `;
-  } catch (error) {
+  }
+  catch (error) {
     // If a database error occurs, return a more specific error.
     return {
       message: "Database Error: Failed to Create Invoice.",
@@ -113,7 +114,8 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
       SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
       WHERE id = ${id}
     `;
-  } catch (error) {
+  }
+  catch (error) {
     return { message: "Database Error: Failed to Update Invoice." };
   }
 
@@ -126,7 +128,8 @@ export async function deleteInvoice(id: string) {
   // throw new Error("Failed to Delete Invoice");
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
-  } catch (error) {
+  }
+  catch (error) {
     console.error("Database Error: Failed to Delete Invoice.", error);
   }
   // 触发新的服务器请求并重新渲染表格
@@ -138,7 +141,8 @@ export async function deleteInvoice(id: string) {
 export async function authenticate(prevState: string | undefined, formData: FormData) {
   try {
     await signIn("credentials", formData);
-  } catch (error) {
+  }
+  catch (error) {
     if (error instanceof AuthError) {
       switch ((error as any).type) {
         case "CredentialsSignin":

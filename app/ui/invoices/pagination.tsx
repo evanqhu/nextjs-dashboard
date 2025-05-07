@@ -75,13 +75,15 @@ function PaginationNumber({
     "text-gray-300": position === "middle",
   });
 
-  return isActive || position === "middle" ? (
-    <div className={className}>{page}</div>
-  ) : (
-    <Link href={href} className={className}>
-      {page}
-    </Link>
-  );
+  return isActive || position === "middle"
+    ? (
+        <div className={className}>{page}</div>
+      )
+    : (
+        <Link href={href} className={className}>
+          {page}
+        </Link>
+      );
 }
 
 function PaginationArrow({
@@ -102,11 +104,13 @@ function PaginationArrow({
 
   const icon = direction === "left" ? <ArrowLeftIcon className="w-4" /> : <ArrowRightIcon className="w-4" />;
 
-  return isDisabled ? (
-    <div className={className}>{icon}</div>
-  ) : (
-    <Link className={className} href={href}>
-      {icon}
-    </Link>
-  );
+  return isDisabled
+    ? (
+        <div className={className}>{icon}</div>
+      )
+    : (
+        <Link className={className} href={href}>
+          {icon}
+        </Link>
+      );
 }

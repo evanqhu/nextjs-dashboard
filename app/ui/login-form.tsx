@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { lusitana } from "@/app/ui/fonts";
 import { AtSymbolIcon, KeyIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";

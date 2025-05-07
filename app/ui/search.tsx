@@ -13,10 +13,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const handleSearch = useDebouncedCallback((term: string) => {
     // 客户端组件，使用  use hook 从客户端访问参数
     const params = new URLSearchParams(searchParams);
-    params.set('page', '1');
+    params.set("page", "1");
     if (term) {
       params.set("query", term);
-    } else {
+    }
+    else {
       params.delete("query");
     }
     replace(`${pathname}?${params.toString()}`);

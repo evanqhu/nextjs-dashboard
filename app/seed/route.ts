@@ -33,7 +33,7 @@ async function seedUsers() {
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
         ON CONFLICT (id) DO NOTHING;
       `;
-    })
+    }),
   );
 
   return insertedUsers;
@@ -59,12 +59,12 @@ async function seedInvoices() {
   // 遍历发票数据并插入到数据库
   const insertedInvoices = await Promise.all(
     invoices.map(
-      (invoice) => sql`
+      invoice => sql`
         INSERT INTO invoices (customer_id, amount, status, date)
         VALUES (${invoice.customer_id}, ${invoice.amount}, ${invoice.status}, ${invoice.date})
         ON CONFLICT (id) DO NOTHING;
-      `
-    )
+      `,
+    ),
   );
 
   return insertedInvoices;
@@ -89,12 +89,12 @@ async function seedCustomers() {
   // 遍历客户数据并插入到数据库
   const insertedCustomers = await Promise.all(
     customers.map(
-      (customer) => sql`
+      customer => sql`
         INSERT INTO customers (id, name, email, image_url)
         VALUES (${customer.id}, ${customer.name}, ${customer.email}, ${customer.image_url})
         ON CONFLICT (id) DO NOTHING;
-      `
-    )
+      `,
+    ),
   );
 
   return insertedCustomers;
@@ -114,12 +114,12 @@ async function seedRevenue() {
   // 遍历收入数据并插入到数据库
   const insertedRevenue = await Promise.all(
     revenue.map(
-      (rev) => sql`
+      rev => sql`
         INSERT INTO revenue (month, revenue)
         VALUES (${rev.month}, ${rev.revenue})
         ON CONFLICT (month) DO NOTHING;
-      `
-    )
+      `,
+    ),
   );
 
   return insertedRevenue;
@@ -139,7 +139,8 @@ export async function GET() {
 
     // 返回成功响应
     return Response.json({ message: "Database seeded successfully" });
-  } catch (error) {
+  }
+  catch (error) {
     // 如果发生错误，返回 500 状态码和错误信息
     return Response.json({ error }, { status: 500 });
   }

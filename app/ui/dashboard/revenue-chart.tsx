@@ -1,7 +1,7 @@
-import { generateYAxis } from '@/app/lib/utils';
-import { CalendarIcon } from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
-import { fetchRevenue } from '@/app/lib/data';
+import { generateYAxis } from "@/app/lib/utils";
+import { CalendarIcon } from "@heroicons/react/24/outline";
+import { lusitana } from "@/app/ui/fonts";
+import { fetchRevenue } from "@/app/lib/data";
 // 这个组件仅用于展示目的
 // 对于数据可视化 UI，请参考：
 // https://www.tremor.so/
@@ -31,19 +31,20 @@ export default async function RevenueChart() {
             className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
             style={{ height: `${chartHeight}px` }}
           >
-            {yAxisLabels.map((label) => (
+            {yAxisLabels.map(label => (
               <p key={label}>{label}</p>
             ))}
           </div>
 
-          {revenue.map((month) => (
+          {revenue.map(month => (
             <div key={month.month} className="flex flex-col items-center gap-2">
               <div
                 className="w-full rounded-md bg-blue-300"
                 style={{
                   height: `${(chartHeight / topLabel) * month.revenue}px`,
                 }}
-              ></div>
+              >
+              </div>
               <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">
                 {month.month}
               </p>
