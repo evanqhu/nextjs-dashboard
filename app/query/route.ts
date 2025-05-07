@@ -1,3 +1,4 @@
+/** API 路由处理函数 - GET 请求处理数据库查询 */
 import postgres from "postgres";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });

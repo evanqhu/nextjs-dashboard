@@ -1,3 +1,4 @@
+/** API 路由处理函数 - GET 请求处理数据库初始化 */
 // 导入必要的依赖
 import bcrypt from "bcryptjs"; // 用于密码加密
 import postgres from "postgres"; // PostgreSQL 数据库客户端
