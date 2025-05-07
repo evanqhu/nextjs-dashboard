@@ -1,7 +1,7 @@
 /**
  * 注入 Tailwind 的基础样式以及所有插件注册的基础样式。
  */
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --grid-template-columns-13: repeat(13, minmax(0, 1fr));
@@ -17,14 +17,11 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/**
+ * Tailwind CSS v4 中默认的边框颜色已更改为 currentcolor，
+ * 所以我们添加了这些兼容性样式，以确保所有内容的外观仍然和 Tailwind CSS v3 一样。
+ * 如果以后想移除这些样式，我们需要为任何依赖这些默认值的元素显式添加边框颜色的工具类。
+ */
 @layer base {
   *,
   ::after,
@@ -34,14 +31,6 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
-
-/**
-  * 注入 Tailwind 的组件类以及所有插件注册的组件类。
-  */
-
-/**
-  * 注入 Tailwind 的工具类以及所有插件注册的工具类。
-  */
 
 input[type="number"] {
   -moz-appearance: textfield;
