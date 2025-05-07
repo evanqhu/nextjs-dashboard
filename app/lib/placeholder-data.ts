@@ -1,5 +1,8 @@
+/** 占位数据文件 */
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
+
+/** 用户数据 */
 const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
@@ -9,6 +12,7 @@ const users = [
   },
 ];
 
+/** 客户数据 */
 const customers = [
   {
     id: 'd6e15727-9fe1-4961-8c5b-ea44a9bd81aa',
@@ -48,6 +52,7 @@ const customers = [
   },
 ];
 
+/** 发票数据 */
 const invoices = [
   {
     customer_id: customers[0].id,
@@ -129,6 +134,7 @@ const invoices = [
   },
 ];
 
+/** 收入数据 */
 const revenue = [
   { month: 'Jan', revenue: 2000 },
   { month: 'Feb', revenue: 1800 },

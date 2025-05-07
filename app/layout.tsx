@@ -1,5 +1,5 @@
 /** 根布局 */
-import "@/app/ui/global.css";
+import "@/app/ui/global.css"; // 全局样式
 import { inter } from "@/app/ui/fonts"; // 字体
 import { Metadata } from "next";
 
