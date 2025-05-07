@@ -2,7 +2,7 @@
 // 导入必要的依赖
 import bcrypt from "bcryptjs"; // 用于密码加密
 import postgres from "postgres"; // PostgreSQL 数据库客户端
-import { invoices, customers, revenue, users } from "../lib/placeholder-data"; // 导入示例数据
+import { invoices, customers, revenue, users } from "@/app/lib/placeholder-data"; // 导入示例数据
 
 // 创建 PostgreSQL 连接实例，启用 SSL
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
