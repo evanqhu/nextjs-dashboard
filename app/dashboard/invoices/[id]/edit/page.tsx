@@ -15,6 +15,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   // 获取 invoice 和 customers 数据
   const [invoice, customers] = await Promise.all([fetchInvoiceById(id), fetchCustomers()]);
 
+  // 如果 invoice 不存在，返回 404 页面
   if (!invoice) {
     notFound();
   }

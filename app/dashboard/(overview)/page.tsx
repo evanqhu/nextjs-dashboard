@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  // 要想看到 loading.tsx 生效，需要在 page 页面添加异步操作
+  // await new Promise(resolve => setTimeout(resolve, 2000)); // 人为延迟2秒
   // const { numberOfInvoices, numberOfCustomers, totalPaidInvoices, totalPendingInvoices } = await fetchCardData();
 
   return (

@@ -5,13 +5,12 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
 export default function Search({ placeholder }: { placeholder: string }) {
+  // 客户端组件，使用  use hook 从客户端访问参数，read-only
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  /** 不考虑加个防抖吗 */
   const handleSearch = useDebouncedCallback((term: string) => {
-    // 客户端组件，使用  use hook 从客户端访问参数
     const params = new URLSearchParams(searchParams);
     params.set("page", "1");
     if (term) {
@@ -28,8 +27,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
       <label htmlFor="search" className="sr-only">
         Search
       </label>
+      {/* 使用 defaultValue，表示不受控；使用 value，表示受控，状态受 React 管理 */}
       <input
-        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm placeholder:text-gray-500"
         placeholder={placeholder}
         onChange={(e) => {
           handleSearch(e.target.value);

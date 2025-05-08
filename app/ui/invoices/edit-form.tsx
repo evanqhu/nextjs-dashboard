@@ -12,7 +12,7 @@ export default function EditInvoiceForm({ invoice, customers }: { invoice: Invoi
   // 使用 bind 方法将 invoice.id 绑定到 updateInvoice 函数
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
-  console.log("🚀🚀🚀 state: ", state);
+  // console.log("🚀🚀🚀 state: ", state);
 
   return (
     <form action={formAction}>
@@ -93,7 +93,7 @@ export default function EditInvoiceForm({ invoice, customers }: { invoice: Invoi
                   type="radio"
                   value="pending"
                   defaultChecked={invoice.status === "pending"}
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600"
                 />
                 <label
                   htmlFor="pending"
@@ -109,7 +109,7 @@ export default function EditInvoiceForm({ invoice, customers }: { invoice: Invoi
                   type="radio"
                   value="paid"
                   defaultChecked={invoice.status === "paid"}
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600"
                 />
                 <label
                   htmlFor="paid"

@@ -46,6 +46,7 @@ const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 /** 创建发票 */
 // prevState - 包含从 useActionState 钩子传递过来的状态
 export async function createInvoice(prevState: State, formData: FormData) {
+  // 验证表单数据
   const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get("customerId"),
     amount: formData.get("amount"),
@@ -67,10 +68,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
   const date = new Date().toISOString().split("T")[0];
 
   // 插入数据到数据库
-  // await sql`
-  //   INSERT INTO invoices (customer_id, amount, status, date)
-  //   VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-  // `;
   try {
     await sql`
       INSERT INTO invoices (customer_id, amount, status, date)
@@ -78,7 +75,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
     `;
   }
   catch (error) {
-    // If a database error occurs, return a more specific error.
+    console.error("Database Error: Failed to Create Invoice.", error);
     return {
       message: "Database Error: Failed to Create Invoice.",
     };
@@ -116,6 +113,7 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
     `;
   }
   catch (error) {
+    console.error("Database Error: Failed to Update Invoice.", error);
     return { message: "Database Error: Failed to Update Invoice." };
   }
 
