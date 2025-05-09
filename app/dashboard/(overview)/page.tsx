@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Dashboard",
 };
 
+/** 每隔 60 秒重新生成页面 */
+// export const revalidate = 60;
+
 /** 强制当前页面动态渲染 */
 // export const dynamic = "force-dynamic";
 
