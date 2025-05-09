@@ -22,6 +22,13 @@ export default async function CardWrapper() {
     totalPendingInvoices,
   } = await fetchCardData();
 
+  // 在启用 PPR 时，以下代码可以使组件变成动态渲染
+  // const demo = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  //   cache: "no-store",
+  // });
+  // const data = await demo.json();
+  // console.log("🚀🚀🚀 data: ", data.title);
+
   return (
     <>
       <Card title="Collected" value={totalPaidInvoices} type="collected" />
