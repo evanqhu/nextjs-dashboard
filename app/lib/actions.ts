@@ -83,6 +83,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
   // 因为数据会缓存，所以需要重新验证路径，重新从服务器获取数据
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
   // 重定向到 invoices 页面
   redirect("/dashboard/invoices");
 }
@@ -118,6 +119,7 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
   }
 
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
   redirect("/dashboard/invoices");
 }
 
@@ -132,6 +134,7 @@ export async function deleteInvoice(id: string) {
   }
   // 触发新的服务器请求并重新渲染表格
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
 }
 
 /** ****************** auth actions ****************** */

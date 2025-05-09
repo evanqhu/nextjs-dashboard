@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 /** 强制当前页面动态渲染 */
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function Page() {
   // 要想看到 loading.tsx 生效，需要在 page 页面添加异步操作
