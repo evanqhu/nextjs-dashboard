@@ -1,5 +1,5 @@
 /**
- * Next.js 身份验证配置文件
+ * Auth.js 身份验证配置文件
  * 用于设置登录、授权和重定向规则
  * 官方推荐：这里只写静态通用配置，也就是中间件和服务端都能复用的安全配置
  */
@@ -11,7 +11,7 @@ export const authConfig = {
     signIn: "/login", // 将默认的登录页面路由指向 /login
   },
   callbacks: {
-    // authorized 回调用于验证请求是否有权使用 Next.js 中间件访问页面。它在请求完成之前调用，并接收一个包含 auth 和 request 属性的对象
+    // authorized 回调用于验证请求是否有权使用 Auth.js 中间件访问页面。它在请求完成之前调用，并接收一个包含 auth 和 request 属性的对象
     // auth 属性包含用户的会话，request 属性包含传入的请求。
     authorized({ auth, request: { nextUrl } }) {
       // 检查用户是否已登录（通过验证 auth.user 是否存在）

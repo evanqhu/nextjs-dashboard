@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   title: "Dashboard",
 };
 
+// export const dynamic = "force-dynamic";
+
 export default async function Page() {
   // 要想看到 loading.tsx 生效，需要在 page 页面添加异步操作
   // await new Promise(resolve => setTimeout(resolve, 2000)); // 人为延迟2秒
